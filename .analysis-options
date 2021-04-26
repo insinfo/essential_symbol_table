@@ -1,0 +1,4 @@
+analyzer:
+  strong-mode: true
+    nullable_type_in_extends_clause: true
+    implicit-casts: false

@@ -1,0 +1,9 @@
+name: essential_symbol_table
+version: 2.0.0
+description: A generic symbol table implementation in Dart, with support for scopes and constants.
+author: Isaque neves <insinfo2008@gmail.com>
+homepage: https://github.com/insinfo/essential_symbol_table
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+dev_dependencies:
+  test: ^1.17.2
