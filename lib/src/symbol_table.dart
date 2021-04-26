@@ -240,7 +240,9 @@ class SymbolTable<T> {
     child
       .._depth = _depth + 1
       .._parent = this
-      .._root = _root;
+      .._root = _root
+      .._countNamePut = _countNamePut;
+
     _children.add(child);
     return child;
   }
@@ -292,26 +294,25 @@ class SymbolTable<T> {
   ///
   /// The variation will the input [name], but with a numerical suffix appended.
   /// Ex. `foo1`, `bar24`
+  int _countNamePut = -1;
   String uniqueName(String name) {
-    int count = 0;
-    SymbolTable? search = this;
-
+    /*     int count = 0;
+    SymbolTable<T>? search = this;
     while (search != null) {
-      if (search._names.containsKey(name)) count += search._names[name]!;
+      if (search._names.containsKey(name)) {
+        var a = search._names[name];
+        if (a != null) {
+          print('search._names.containsKey(name) count: $count a: $a');
+          count += a;
+        }
+      }
       search = search._parent;
-    }
-
+    }    
+      _names[name]++;
+    */
     _names.putIfAbsent(name, () => 0);
+    _countNamePut++;
 
-    //_names[name]++;
-
-    //if(_names.containsKey(name)){
-    var v = _names[name];
-    if (v != null) {
-      _names[name] = v++;
-    }
-    //}
-
-    return '$name$count';
+    return '$name$_countNamePut';
   }
 }

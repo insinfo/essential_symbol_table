@@ -19,3 +19,7 @@
 ## 2.0.0
 
 - add null safety support
+
+## 2.0.1
+
+- fix bug on uniqueName
